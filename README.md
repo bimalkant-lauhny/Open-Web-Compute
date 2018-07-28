@@ -3,6 +3,7 @@ Code for the awesome Hack on Hills 3.0. :)
 
 Our idea is to leverage the resources of the millions of computers connected on the Internet. Any site that wants to support open source high computation tasks can simply add one line of code to their HTML and that will communicate with our API Server and transfer some payload to anyone who access the site (users of the site). The result of these small computations is then merged to present the final output which can be accessed via our API. Jobs which can be added are limitless. But presently, we focused only on data cleaning and filtering jobs.
 
+![Open Web Compute Idea](https://raw.githubusercontent.com/code-master5/Open-Web-Compute/master/figure.png)
 
 ## What problem are we trying to solve?
 
@@ -62,6 +63,7 @@ the main thread. So, the UI performance is not affected at all.
 * Run `python3 api_app.py` for running the main api server.
 * Run `python3 example_site.py` for running the demo site which uses our api.
 * Add a job as shown below (POST request to endpoints `/prejob` and `/job')
+![Adding a Prejob](https://raw.githubusercontent.com/code-master5/Open-Web-Compute/master/prejob.png)
 * View the list of all jobs by entering localhost:5001/list on your browser.
 * Visit example site at localhost:5000. This will automatically fetch one job from the pool and execute it.
 * Refresh the list page and one can download the result once, the job is complete.
