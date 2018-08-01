@@ -29,6 +29,7 @@ def add_job():
         data = []
         job_name = request.form['jobname']
         task_type = request.form['tasktype']
+        print ("Form: ", request.form['criteria'])
         if 'file' in request.files:
             file = request.files['file']
             for line in file.readlines():
@@ -50,7 +51,7 @@ def generate_code(op_type, criterias):
                 {"col": "1", "operator": "==", "value": "Suyash", "typeval": "string"}]
     """
     if op_type == "filter":
-        criterias = str(criterias);
+        criterias = str(criterias)
 
         code = """ criterias = """ + criterias + """ ;
             data_fixed = data.filter(function(element) {
@@ -114,7 +115,9 @@ def pre_job():
     data = request_body["data"]
     name = request_body["name"]
     custom_add_job(data, code, name)
-    return jsonify({"message": "job has been created"})
+    return jsonify({
+        "message": "job has been created"
+	})
 
 
 def custom_add_job(data, code, name):
@@ -233,4 +236,4 @@ def handle_dis():
 
 
 if __name__ == '__main__':
-    sio.run(app,port=5001,debug=False)
+    sio.run(app,port=5001,debug=True)
